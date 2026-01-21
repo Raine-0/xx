@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>生日快乐 💛</title>
+  <meta name="description" content="一个用域名做的生日惊喜小网页" />
+
+  <!-- 你可以把网页标题和分享描述改成更私密的文案 -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 漂浮小爱心背景（纯 CSS） -->
+  <div class="hearts" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="hero">
+    <div class="hero__content">
+      <p class="badge">给 <span id="gfName">我的小朋友</span> 的生日小站</p>
+      <h1 class="title">
+        <span class="title__line">生日快乐</span>
+        <span class="title__name" id="titleName">（她的名字）</span>
+      </h1>
+      <p class="subtitle" id="subtitle">
+        今天也要被好好爱着。💛
+      </p>
+
+      <div class="hero__cta">
+        <button class="btn btn--primary" id="openLetterBtn">打开我的信</button>
+        <button class="btn btn--ghost" id="toggleMusicBtn" aria-pressed="false">播放音乐</button>
+      </div>
+
+      <div class="timer" role="group" aria-label="生日倒计时">
+        <div class="timer__item">
+          <div class="timer__num" id="dd">00</div>
+          <div class="timer__label">天</div>
+        </div>
+        <div class="timer__item">
+          <div class="timer__num" id="hh">00</div>
+          <div class="timer__label">时</div>
+        </div>
+        <div class="timer__item">
+          <div class="timer__num" id="mm">00</div>
+          <div class="timer__label">分</div>
+        </div>
+        <div class="timer__item">
+          <div class="timer__num" id="ss">00</div>
+          <div class="timer__label">秒</div>
+        </div>
+      </div>
+
+      <p class="hint">（提示：手机上也能看，记得把照片换成你们自己的～）</p>
+    </div>
+
+    <div class="hero__card">
+      <div class="mini">
+        <div class="mini__row">
+          <span class="mini__k">今日关键词</span>
+          <span class="mini__v" id="keyword">温柔 / 浪漫 / 只属于你</span>
+        </div>
+        <div class="mini__row">
+          <span class="mini__k">我想对你说</span>
+          <span class="mini__v" id="oneLine">你一笑，我就觉得一切都值得。</span>
+        </div>
+        <div class="mini__row">
+          <span class="mini__k">纪念日倒计时</span>
+          <span class="mini__v" id="anniLeft">距离 11.12 还有 -- 天 -- 时 -- 分</span>
+        </div>
+        <div class="mini__row">
+          <span class="mini__k">暗号</span>
+          <span class="mini__v">在下面输入我们的小暗号，会解锁彩蛋。</span>
+        </div>
+
+        <div class="pass">
+          <input class="pass__input" id="passInput" placeholder="输入暗号（可选）" autocomplete="off" />
+          <button class="btn btn--small" id="passBtn">解锁</button>
+        </div>
+        <div class="easter" id="easter" hidden>
+          <p class="easter__title">🎉 彩蛋解锁！</p>
+          <p class="easter__text" id="easterText">你是我最最最喜欢的人。</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="section">
+      <h2 class="section__title">我们的瞬间</h2>
+      <p class="section__desc">把 <code>assets</code> 里的图片换成你们的照片（文件名保持一致即可）。</p>
+
+      <div class="gallery">
+        <figure class="photo">
+          <img src="assets/photo1.jpg" alt="我们的照片 1" loading="lazy" />
+          <figcaption>第一次一起做的事</figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/photo2.jpg" alt="我们的照片 2" loading="lazy" />
+          <figcaption>最喜欢的那次出游</figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/photo3.jpg" alt="我们的照片 3" loading="lazy" />
+          <figcaption>你笑起来的时候</figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/photo4.jpg" alt="我们的照片 4" loading="lazy" />
+          <figcaption>最日常也最幸福</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">我记得的三件小事</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>1) 你的认真</h3>
+          <p>你认真对待每一件小事的样子，特别可爱，也特别让人安心。</p>
+        </article>
+        <article class="card">
+          <h3>2) 你的善良</h3>
+          <p>你对身边的人都很温柔。你的善意会发光，我也会被照亮。</p>
+        </article>
+        <article class="card">
+          <h3>3) 你的勇敢</h3>
+          <p>你不一定总是无所畏惧，但你一直都在向前走——这就很了不起。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">今天的愿望清单</h2>
+      <ul class="list">
+        <li>愿你永远被偏爱、被理解、被珍惜。</li>
+        <li>愿你想做的事都能做成，想见的人都能见到。</li>
+        <li>愿你在我这里，永远都是小朋友。</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">给你的小信</h2>
+      <p class="section__desc">点击顶部「打开我的信」，会弹出信封。你也可以直接在这里写一段长一点的文字。</p>
+      <div class="longtext" id="longText">
+        <p>（在这里写你想说的话。比如：）</p>
+        <p>
+          亲爱的，生日快乐。谢谢你来到我的生活里。
+          我喜欢你开心时的样子，也愿意在你不开心时抱紧你。
+          未来的日子，我们一起慢慢过。
+        </p>
+        <p class="sign">—— <span id="yourName">（你的名字）</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made with 💛 on Cloudflare Pages</p>
+  </footer>
+
+  <!-- 弹窗信封 -->
+  <div class="modal" id="letterModal" aria-hidden="true">
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="生日信">
+      <div class="envelope">
+        <div class="envelope__top"></div>
+        <div class="envelope__body">
+          <div class="letter">
+            <p class="letter__title">给 <span id="gfName2">你</span>：</p>
+            <p id="letterText">
+              生日快乐！愿你每天都被温柔对待。愿你的每一个愿望，都有人认真帮你实现。
+            </p>
+            <p class="letter__sign">—— <span id="yourName2">我</span></p>
+          </div>
+        </div>
+      </div>
+
+      <button class="modal__close" id="closeLetterBtn" aria-label="关闭">×</button>
+    </div>
+  </div>
+
+  <!-- 背景音乐：把 assets/music.mp3 换成你们喜欢的歌（注意版权/授权）。 -->
+  <audio id="bgm" preload="auto" loop>
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
