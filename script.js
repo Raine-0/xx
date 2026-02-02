@@ -63,12 +63,13 @@ function setText(id, value) {
   setText("letterText", CONFIG.letterText);
 
   // 图片加载失败时，给一个柔和的占位效果
-  document.querySelectorAll(".photo img").forEach((img) => {
+  document.querySelectorAll(".photo img, .note-card img").forEach((img) => {
     img.addEventListener("error", () => {
       img.style.display = "none";
       const ph = document.createElement("div");
-      ph.className = "photo__placeholder";
-      ph.innerHTML = "<span>把这张换成你们的照片</span>";
+      const isNote = img.closest(".note-card");
+      ph.className = isNote ? "note-card__placeholder" : "photo__placeholder";
+      ph.innerHTML = isNote ? "<span>把这张换成你们的纸条照片</span>" : "<span>把这张换成你们的照片</span>";
       img.parentElement.insertBefore(ph, img);
     });
   });
@@ -141,8 +142,48 @@ function closeModal() {
 openLetterBtn?.addEventListener("click", openModal);
 closeLetterBtn?.addEventListener("click", closeModal);
 modalBackdrop?.addEventListener("click", closeModal);
+
+// 纸条弹窗
+const noteModal = document.getElementById("noteModal");
+const noteBackdrop = document.getElementById("noteBackdrop");
+const closeNoteBtn = document.getElementById("closeNoteBtn");
+const notePreviewImg = document.getElementById("notePreviewImg");
+const notePreviewCaption = document.getElementById("notePreviewCaption");
+
+function openNoteModal(src, caption) {
+  if (!noteModal || !notePreviewImg) return;
+  notePreviewImg.src = src;
+  notePreviewImg.alt = caption || "纸条放大预览";
+  if (notePreviewCaption) notePreviewCaption.textContent = caption || "";
+  noteModal.classList.add("is-open");
+  noteModal.setAttribute("aria-hidden", "false");
+}
+
+function closeNoteModal() {
+  noteModal?.classList.remove("is-open");
+  noteModal?.setAttribute("aria-hidden", "true");
+}
+
+document.querySelectorAll(".note-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const img = card.querySelector("img");
+    const caption = card.querySelector(".note-card__date")?.textContent || "";
+    if (!img?.getAttribute("src")) return;
+    card.classList.add("is-active");
+    setTimeout(() => {
+      openNoteModal(img.getAttribute("src"), caption);
+      card.classList.remove("is-active");
+    }, 220);
+  });
+});
+
+noteBackdrop?.addEventListener("click", closeNoteModal);
+closeNoteBtn?.addEventListener("click", closeNoteModal);
 window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeModal();
+  if (e.key === "Escape") {
+    closeModal();
+    closeNoteModal();
+  }
 });
 
 // ===============
