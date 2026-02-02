@@ -168,9 +168,12 @@ document.querySelectorAll(".note-card").forEach((card) => {
   card.addEventListener("click", () => {
     const img = card.querySelector("img");
     const caption = card.querySelector(".note-card__date")?.textContent || "";
-    if (img?.getAttribute("src")) {
+    if (!img?.getAttribute("src")) return;
+    card.classList.add("is-active");
+    setTimeout(() => {
       openNoteModal(img.getAttribute("src"), caption);
-    }
+      card.classList.remove("is-active");
+    }, 180);
   });
 });
 
