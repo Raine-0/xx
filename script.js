@@ -14,7 +14,7 @@ const CONFIG = {
 
   // 顶部小卡片
   keyword: " Just Keen On YOU，xx",
-  oneLine: "说好了，我们要一直在一起！每一个生日我都会在❤️",
+  oneLine: "   说好了，我们要一直在一起！每一个生日我都会在❤️",
 
   // 弹窗信件内容
   letterText:
