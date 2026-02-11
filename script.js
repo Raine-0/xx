@@ -218,24 +218,12 @@ toggleMusicBtn?.addEventListener("click", toggleMusic);
 // 生日蛋糕蜡烛
 // ===============
 const candles = Array.from(document.querySelectorAll('.candle'));
-const cakeHint = document.getElementById('cakeHint');
-
 candles.forEach((candle) => {
   candle.addEventListener('click', () => {
     const willOut = !candle.classList.contains('is-out');
     candle.classList.toggle('is-out', willOut);
     candle.setAttribute('aria-pressed', String(willOut));
 
-    const outCount = candles.filter((item) => item.classList.contains('is-out')).length;
-    if (cakeHint) {
-      if (outCount === candles.length) {
-        cakeHint.textContent = '呼～蜡烛都吹灭啦，许愿成功 🎉';
-      } else if (outCount > 0) {
-        cakeHint.textContent = `已吹灭 ${outCount}/${candles.length} 根蜡烛`;
-      } else {
-        cakeHint.textContent = '点蜡烛可以吹灭哦 ✨';
-      }
-    }
   });
 });
 

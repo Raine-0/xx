@@ -257,12 +257,6 @@ code{
   background: rgba(0,0,0,.26);
   filter: blur(4px);
 }
-.cake__hint{
-  margin: 8px 0 0;
-  text-align:center;
-  color:#d6daee;
-  font-size: 12px;
-}
 
 .hero__cta{ display:flex; gap:12px; flex-wrap:wrap; margin: 14px 0 18px; }
 
