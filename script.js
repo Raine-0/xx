@@ -173,7 +173,7 @@ document.querySelectorAll(".note-card").forEach((card) => {
     setTimeout(() => {
       openNoteModal(img.getAttribute("src"), caption);
       card.classList.remove("is-active");
-    }, 180);
+    }, 220);
   });
 });
 
@@ -213,6 +213,19 @@ async function toggleMusic() {
 }
 
 toggleMusicBtn?.addEventListener("click", toggleMusic);
+
+// ===============
+// 生日蛋糕蜡烛
+// ===============
+const candles = Array.from(document.querySelectorAll('.candle'));
+candles.forEach((candle) => {
+  candle.addEventListener('click', () => {
+    const willOut = !candle.classList.contains('is-out');
+    candle.classList.toggle('is-out', willOut);
+    candle.setAttribute('aria-pressed', String(willOut));
+
+  });
+});
 
 // ===============
 // 彩蛋
