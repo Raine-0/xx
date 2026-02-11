@@ -3,7 +3,7 @@
 // ===============
 const CONFIG = {
   girlfriendName: "xx",
-  yourName: "（你的名字）",
+  yourName: "zz",
 
   // 生日（只需要月/日即可）。脚本会自动计算“下一个生日”的倒计时。
   birthday: { month: 2, day: 24 },
@@ -13,12 +13,12 @@ const CONFIG = {
   anniversary: { month: 11, day: 12 },
 
   // 顶部小卡片
-  keyword: "温柔 / 浪漫 / 只属于你",
-  oneLine: "你一笑，我就觉得一切都值得。",
+  keyword: " Just Keen On YOU，xx",
+  oneLine: "   说好了，我们要一直在一起！每一个生日我都会在❤️",
 
   // 弹窗信件内容
   letterText:
-    "生日快乐！愿你每天都被温柔对待。愿你的每一个愿望，都有人认真帮你实现。",
+    "生日快乐呀宝！",
 
   // 彩蛋（可选）：输入暗号才显示
   easterEgg: {
