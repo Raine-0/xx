@@ -26,10 +26,29 @@
   <header class="hero">
     <div class="hero__content">
       <p class="badge">给 <span id="gfName">我的小朋友</span> 的生日小站</p>
-      <h1 class="title">
-        <span class="title__line">生日快乐</span>
-        <span class="title__name" id="titleName">（她的名字）</span>
-      </h1>
+      <div class="title-row">
+        <h1 class="title">
+          <span class="title__line">生日快乐</span>
+          <span class="title__name" id="titleName">（她的名字）</span>
+        </h1>
+
+        <div class="cake" id="cake" aria-label="19岁生日蛋糕">
+          <div class="cake__topper" aria-hidden="true">19</div>
+          <div class="cake__candles" role="group" aria-label="点击吹灭蜡烛">
+            <button class="candle" type="button" aria-label="吹灭蜡烛 1" aria-pressed="false"><span class="flame"></span></button>
+            <button class="candle" type="button" aria-label="吹灭蜡烛 2" aria-pressed="false"><span class="flame"></span></button>
+            <button class="candle" type="button" aria-label="吹灭蜡烛 3" aria-pressed="false"><span class="flame"></span></button>
+          </div>
+          <div class="cake__top"></div>
+          <div class="cake__mid">
+            <span class="cake__berry"></span>
+            <span class="cake__berry"></span>
+            <span class="cake__berry"></span>
+          </div>
+          <div class="cake__base"></div>
+          <div class="cake__plate"></div>
+        </div>
+      </div>
       <p class="subtitle" id="subtitle">
         今天也要被好好爱着。💛
       </p>
@@ -94,26 +113,42 @@
 
   <main class="main">
     <section class="section">
-      <h2 class="section__title">我们的瞬间</h2>
-      <p class="section__desc">把 <code>assets</code> 里的图片换成你们的照片（文件名保持一致即可）。</p>
+      <h2 class="section__title">我们的纸条时光</h2>
+      <p class="section__desc">把 <code>assets</code> 里的纸条照片替换成你们写过的卡片或便签（文件名保持一致即可）。点击可放大查看。</p>
 
-      <div class="gallery">
-        <figure class="photo">
-          <img src="assets/photo1.jpg" alt="我们的照片 1" loading="lazy" />
-          <figcaption>第一次一起做的事</figcaption>
-        </figure>
-        <figure class="photo">
-          <img src="assets/photo2.jpg" alt="我们的照片 2" loading="lazy" />
-          <figcaption>最喜欢的那次出游</figcaption>
-        </figure>
-        <figure class="photo">
-          <img src="assets/photo3.jpg" alt="我们的照片 3" loading="lazy" />
-          <figcaption>你笑起来的时候</figcaption>
-        </figure>
-        <figure class="photo">
-          <img src="assets/photo4.jpg" alt="我们的照片 4" loading="lazy" />
-          <figcaption>最日常也最幸福</figcaption>
-        </figure>
+      <div class="notes notes--stack">
+        <button class="note-card" type="button" data-note="assets/note1.jpg">
+          <span class="note-card__date">2022 · 春</span>
+          <img src="assets/note1.jpg" alt="纸条 1" loading="lazy" />
+        </button>
+        <button class="note-card" type="button" data-note="assets/note2.jpg">
+          <span class="note-card__date">2022 · 冬</span>
+          <img src="assets/note2.jpg" alt="纸条 2" loading="lazy" />
+        </button>
+        <button class="note-card" type="button" data-note="assets/note3.jpg">
+          <span class="note-card__date">2023 · 夏</span>
+          <img src="assets/note3.jpg" alt="纸条 3" loading="lazy" />
+        </button>
+        <button class="note-card" type="button" data-note="assets/note4.jpg">
+          <span class="note-card__date">2024 · 秋</span>
+          <img src="assets/note4.jpg" alt="纸条 4" loading="lazy" />
+        </button>
+        <button class="note-card" type="button" data-note="assets/note5.jpg">
+          <span class="note-card__date">2024 · 冬</span>
+          <img src="assets/note5.jpg" alt="纸条 5" loading="lazy" />
+        </button>
+        <button class="note-card" type="button" data-note="assets/note6.jpg">
+          <span class="note-card__date">2025 · 春</span>
+          <img src="assets/note6.jpg" alt="纸条 6" loading="lazy" />
+        </button>
+        <button class="note-card" type="button" data-note="assets/note7.jpg">
+          <span class="note-card__date">2025 · 夏</span>
+          <img src="assets/note7.jpg" alt="纸条 7" loading="lazy" />
+        </button>
+        <button class="note-card" type="button" data-note="assets/note8.jpg">
+          <span class="note-card__date">2025 · 秋</span>
+          <img src="assets/note8.jpg" alt="纸条 8" loading="lazy" />
+        </button>
       </div>
     </section>
 
@@ -181,6 +216,18 @@
       </div>
 
       <button class="modal__close" id="closeLetterBtn" aria-label="关闭">×</button>
+    </div>
+  </div>
+
+  <!-- 纸条放大查看 -->
+  <div class="modal" id="noteModal" aria-hidden="true">
+    <div class="modal__backdrop" id="noteBackdrop"></div>
+    <div class="modal__panel modal__panel--note" role="dialog" aria-modal="true" aria-label="纸条">
+      <figure class="note-preview">
+        <img id="notePreviewImg" alt="纸条放大预览" />
+        <figcaption id="notePreviewCaption"></figcaption>
+      </figure>
+      <button class="modal__close" id="closeNoteBtn" aria-label="关闭">×</button>
     </div>
   </div>
 
