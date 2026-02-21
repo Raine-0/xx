@@ -140,7 +140,7 @@ code{
 }
 
 .title{
-  margin: 18px 0 10px;
+  margin: 0 0 10px;
   letter-spacing:.5px;
 }
 .title__line{
@@ -164,63 +164,43 @@ code{
 
 .title-row{
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:space-between;
   gap: 14px;
+  margin-top: 18px;
 }
 
 .cake{
-  width: 132px;
+  width: 176px;
   position:relative;
-  padding-top: 30px;
-  margin-right: 4px;
+  padding-top: 10px;
+  margin-right: 0;
   flex: 0 0 auto;
-  transform: translateY(-2px);
-  filter: drop-shadow(0 14px 24px rgba(6, 10, 28, .34));
+  transform: translateY(0);
+  filter: drop-shadow(0 18px 28px rgba(6, 10, 28, .36));
 }
 .cake::before{
   content:"";
   position:absolute;
-  left: 18px;
-  right: 18px;
-  bottom: -10px;
-  height: 12px;
+  left: 16px;
+  right: 16px;
+  bottom: -12px;
+  height: 14px;
   border-radius: 999px;
-  background: rgba(6, 10, 28, .4);
+  background: rgba(6, 10, 28, .42);
   filter: blur(6px);
-}
-.cake__topper{
-  position:absolute;
-  left:50%;
-  top: 0;
-  transform: translateX(-50%);
-  min-width: 42px;
-  height: 26px;
-  padding: 0 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.35);
-  background: linear-gradient(135deg, rgba(255, 123, 176, .95), rgba(255, 215, 106, .95));
-  color:#2a1d3e;
-  font-weight: 800;
-  font-size: 15px;
-  letter-spacing: .6px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow: 0 8px 16px rgba(0,0,0,.24);
-  z-index:8;
 }
 .cake__candles{
   display:flex;
   justify-content:center;
-  gap: 11px;
-  margin-bottom: 7px;
-  z-index: 6;
+  gap: 13px;
+  margin-bottom: 8px;
+  z-index: 8;
   position:relative;
 }
 .candle{
-  width: 9px;
-  height: 30px;
+  width: 10px;
+  height: 34px;
   border:none;
   border-radius: 5px;
   background: repeating-linear-gradient(
@@ -238,8 +218,8 @@ code{
   position:absolute;
   left: 50%;
   bottom: 100%;
-  width: 10px;
-  height: 14px;
+  width: 11px;
+  height: 16px;
   transform: translateX(-50%);
   border-radius: 60% 60% 60% 60%;
   background: radial-gradient(circle at 50% 70%, #fff7d6 0 30%, #ffb347 45%, #ff6a3d 100%);
@@ -266,26 +246,33 @@ code{
 .cake__top,
 .cake__mid,
 .cake__base{
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.3);
   position:relative;
   overflow:hidden;
 }
 .cake__top{
-  height: 20px;
+  height: 24px;
   background: linear-gradient(135deg, #ffe8f0, #fff2d5);
-  margin: 0 14px -5px;
+  margin: 0 16px -6px;
   z-index:4;
 }
+.cake__top::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  background: radial-gradient(circle at 15% 20%, rgba(255,255,255,.8), transparent 26%),
+              radial-gradient(circle at 78% 30%, rgba(255,255,255,.65), transparent 25%);
+}
 .cake__mid{
-  height: 34px;
+  height: 42px;
   background: linear-gradient(135deg, #ffb6d4, #ffd2e4 55%, #ffdbee);
-  margin: 0 8px -8px;
+  margin: 0 9px -9px;
   z-index:3;
   display:flex;
   align-items:flex-end;
   justify-content:space-evenly;
-  padding: 0 10px 6px;
+  padding: 0 12px 7px;
 }
 .cake__mid::before{
   content:"";
@@ -293,45 +280,55 @@ code{
   top: 0;
   left: 0;
   right: 0;
-  height: 12px;
-  background: radial-gradient(circle at 12% -20%, #fff8ff 0 40%, transparent 41%),
-              radial-gradient(circle at 34% -20%, #fff8ff 0 42%, transparent 43%),
-              radial-gradient(circle at 56% -20%, #fff8ff 0 42%, transparent 43%),
-              radial-gradient(circle at 78% -20%, #fff8ff 0 42%, transparent 43%);
-  opacity:.92;
+  height: 14px;
+  background: radial-gradient(circle at 10% -20%, #fff8ff 0 42%, transparent 43%),
+              radial-gradient(circle at 29% -20%, #fff8ff 0 42%, transparent 43%),
+              radial-gradient(circle at 48% -20%, #fff8ff 0 42%, transparent 43%),
+              radial-gradient(circle at 67% -20%, #fff8ff 0 42%, transparent 43%),
+              radial-gradient(circle at 86% -20%, #fff8ff 0 42%, transparent 43%);
+  opacity:.95;
 }
 .cake__berry{
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #ffe8ef 0 20%, #ff6f95 45%, #d64872 100%);
   box-shadow: 0 0 0 1px rgba(255,255,255,.25);
   z-index:1;
 }
 .cake__base{
-  height: 38px;
+  height: 46px;
   background: linear-gradient(135deg, #ffd87a, #ffc3d8 52%, #ffadcb);
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.cake__base::before{
+  content:"";
+  position:absolute;
+  left: 14px;
+  right: 14px;
+  top: 10px;
+  height: 18px;
+  border-radius: 10px;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 6px, rgba(255,255,255,.06) 6px 12px);
 }
 .cake__base::after{
   content:"";
   position:absolute;
   left: 10px;
   right: 10px;
-  bottom: 7px;
+  bottom: 8px;
   height: 4px;
   border-radius: 999px;
   background: rgba(255,255,255,.34);
 }
 .cake__plate{
-  height: 8px;
-  margin: -1px 4px 0;
+  height: 10px;
+  margin: -1px 2px 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255,255,255,.5), rgba(255,255,255,.22));
+  background: linear-gradient(135deg, rgba(255,255,255,.56), rgba(255,255,255,.2));
   border: 1px solid rgba(255,255,255,.28);
 }
-
 .hero__cta{ display:flex; gap:12px; flex-wrap:wrap; margin: 14px 0 18px; }
 
 .btn{
@@ -756,8 +753,8 @@ code{
 /* 响应式 */
 @media (max-width: 980px){
   .hero{ grid-template-columns: 1fr; min-height: auto; padding-top: 42px; }
-  .title-row{ align-items:flex-end; }
-  .cake{ width:112px; transform: translateY(0); }
+  .title-row{ align-items:flex-start; margin-top: 14px; }
+  .cake{ width:136px; }
   .hero__card{ order: -1; }
   .mini__v{ max-width: 70%; }
   .gallery{ grid-template-columns: repeat(2, 1fr); }
@@ -771,9 +768,8 @@ code{
 
 @media (max-width: 460px){
   .timer__item{ min-width: 66px; }
-  .title-row{ align-items:flex-end; }
-  .cake{ width:96px; margin-top: 0; margin-right: 0; transform: translateY(2px); }
-  .cake__topper{ min-width: 34px; height: 22px; font-size: 12px; padding: 0 7px; }
+  .title-row{ align-items:flex-start; margin-top: 12px; }
+  .cake{ width:108px; margin-right: 0; }
   .photo img{ height: 170px; }
   .photo__placeholder{ height: 170px; }
   .note-card{ width: 160px; margin-left: -14px; }
