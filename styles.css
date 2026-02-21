@@ -166,43 +166,43 @@ code{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
-  gap: 14px;
-  margin-top: 18px;
+  gap: 16px;
+  margin-top: 10px;
 }
 
 .cake{
-  width: 176px;
+  width: 220px;
   position:relative;
-  padding-top: 10px;
-  margin-right: 0;
+  padding-top: 30px;
   flex: 0 0 auto;
   transform: translateY(0);
-  filter: drop-shadow(0 18px 28px rgba(6, 10, 28, .36));
+  perspective: 600px;
+  filter: drop-shadow(0 22px 34px rgba(6, 10, 28, .4));
 }
 .cake::before{
   content:"";
   position:absolute;
-  left: 16px;
-  right: 16px;
+  left: 22px;
+  right: 22px;
   bottom: -12px;
-  height: 14px;
+  height: 16px;
   border-radius: 999px;
-  background: rgba(6, 10, 28, .42);
-  filter: blur(6px);
+  background: rgba(6, 10, 28, .44);
+  filter: blur(7px);
 }
 .cake__candles{
   display:flex;
   justify-content:center;
-  gap: 13px;
-  margin-bottom: 8px;
+  gap: 16px;
+  margin-bottom: -4px;
   z-index: 8;
   position:relative;
 }
 .candle{
-  width: 10px;
-  height: 34px;
+  width: 11px;
+  height: 38px;
   border:none;
-  border-radius: 5px;
+  border-radius: 6px;
   background: repeating-linear-gradient(
     180deg,
     #fff9de 0 4px,
@@ -211,19 +211,31 @@ code{
   cursor:pointer;
   position:relative;
   padding:0;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), 0 2px 5px rgba(0,0,0,.2);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.38), 0 3px 7px rgba(0,0,0,.22);
+}
+.candle::before{
+  content:"";
+  position:absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
+  width: 14px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffd9a8, #f7a962);
+  border: 1px solid rgba(255,255,255,.32);
 }
 .candle:focus-visible{ outline:none; box-shadow: var(--ring); }
 .flame{
   position:absolute;
   left: 50%;
   bottom: 100%;
-  width: 11px;
-  height: 16px;
+  width: 12px;
+  height: 18px;
   transform: translateX(-50%);
   border-radius: 60% 60% 60% 60%;
   background: radial-gradient(circle at 50% 70%, #fff7d6 0 30%, #ffb347 45%, #ff6a3d 100%);
-  box-shadow: 0 0 14px rgba(255, 179, 71, .7);
+  box-shadow: 0 0 16px rgba(255, 179, 71, .76);
   animation: flicker 1.2s ease-in-out infinite;
 }
 .candle.is-out .flame{
@@ -246,33 +258,49 @@ code{
 .cake__top,
 .cake__mid,
 .cake__base{
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.32);
   position:relative;
   overflow:hidden;
+  transform: rotateX(4deg);
+  transform-origin: center top;
 }
 .cake__top{
-  height: 24px;
-  background: linear-gradient(135deg, #ffe8f0, #fff2d5);
-  margin: 0 16px -6px;
+  height: 28px;
+  background: linear-gradient(120deg, #ffe8f0, #fff6dd 55%, #ffe5f4);
+  margin: 0 20px -8px;
   z-index:4;
 }
 .cake__top::before{
   content:"";
   position:absolute;
   inset: 0;
-  background: radial-gradient(circle at 15% 20%, rgba(255,255,255,.8), transparent 26%),
-              radial-gradient(circle at 78% 30%, rgba(255,255,255,.65), transparent 25%);
+  background: radial-gradient(circle at 15% 20%, rgba(255,255,255,.88), transparent 26%),
+              radial-gradient(circle at 78% 30%, rgba(255,255,255,.75), transparent 25%);
+}
+.cake__top::after{
+  content:"";
+  position:absolute;
+  left:8px;
+  right:8px;
+  bottom:-3px;
+  height: 12px;
+  background: radial-gradient(circle at 8% -20%, #fff9ff 0 44%, transparent 45%),
+              radial-gradient(circle at 25% -20%, #fff9ff 0 44%, transparent 45%),
+              radial-gradient(circle at 42% -20%, #fff9ff 0 44%, transparent 45%),
+              radial-gradient(circle at 59% -20%, #fff9ff 0 44%, transparent 45%),
+              radial-gradient(circle at 76% -20%, #fff9ff 0 44%, transparent 45%),
+              radial-gradient(circle at 93% -20%, #fff9ff 0 44%, transparent 45%);
 }
 .cake__mid{
-  height: 42px;
-  background: linear-gradient(135deg, #ffb6d4, #ffd2e4 55%, #ffdbee);
-  margin: 0 9px -9px;
+  height: 50px;
+  background: linear-gradient(125deg, #ffb6d4, #ffd2e4 55%, #ffdbee);
+  margin: 0 12px -10px;
   z-index:3;
   display:flex;
   align-items:flex-end;
   justify-content:space-evenly;
-  padding: 0 12px 7px;
+  padding: 0 12px 9px;
 }
 .cake__mid::before{
   content:"";
@@ -280,12 +308,13 @@ code{
   top: 0;
   left: 0;
   right: 0;
-  height: 14px;
-  background: radial-gradient(circle at 10% -20%, #fff8ff 0 42%, transparent 43%),
-              radial-gradient(circle at 29% -20%, #fff8ff 0 42%, transparent 43%),
-              radial-gradient(circle at 48% -20%, #fff8ff 0 42%, transparent 43%),
-              radial-gradient(circle at 67% -20%, #fff8ff 0 42%, transparent 43%),
-              radial-gradient(circle at 86% -20%, #fff8ff 0 42%, transparent 43%);
+  height: 16px;
+  background: radial-gradient(circle at 8% -20%, #fff8ff 0 42%, transparent 43%),
+              radial-gradient(circle at 24% -20%, #fff8ff 0 42%, transparent 43%),
+              radial-gradient(circle at 40% -20%, #fff8ff 0 42%, transparent 43%),
+              radial-gradient(circle at 56% -20%, #fff8ff 0 42%, transparent 43%),
+              radial-gradient(circle at 72% -20%, #fff8ff 0 42%, transparent 43%),
+              radial-gradient(circle at 88% -20%, #fff8ff 0 42%, transparent 43%);
   opacity:.95;
 }
 .cake__berry{
@@ -293,42 +322,43 @@ code{
   height: 10px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #ffe8ef 0 20%, #ff6f95 45%, #d64872 100%);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.25);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.25), 0 3px 5px rgba(0,0,0,.2);
   z-index:1;
 }
 .cake__base{
-  height: 46px;
-  background: linear-gradient(135deg, #ffd87a, #ffc3d8 52%, #ffadcb);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  height: 58px;
+  background: linear-gradient(130deg, #ffd87a, #ffc3d8 52%, #ffadcb);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
 }
 .cake__base::before{
   content:"";
   position:absolute;
-  left: 14px;
-  right: 14px;
-  top: 10px;
-  height: 18px;
-  border-radius: 10px;
-  background: repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 6px, rgba(255,255,255,.06) 6px 12px);
+  left: 16px;
+  right: 16px;
+  top: 12px;
+  height: 24px;
+  border-radius: 12px;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,.26) 0 7px, rgba(255,255,255,.05) 7px 14px);
 }
 .cake__base::after{
   content:"";
   position:absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 8px;
-  height: 4px;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  height: 5px;
   border-radius: 999px;
-  background: rgba(255,255,255,.34);
+  background: rgba(255,255,255,.36);
 }
 .cake__plate{
-  height: 10px;
-  margin: -1px 2px 0;
+  height: 12px;
+  margin: -2px 4px 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255,255,255,.56), rgba(255,255,255,.2));
-  border: 1px solid rgba(255,255,255,.28);
+  background: linear-gradient(135deg, rgba(255,255,255,.62), rgba(255,255,255,.22));
+  border: 1px solid rgba(255,255,255,.3);
 }
+
 .hero__cta{ display:flex; gap:12px; flex-wrap:wrap; margin: 14px 0 18px; }
 
 .btn{
@@ -753,8 +783,8 @@ code{
 /* 响应式 */
 @media (max-width: 980px){
   .hero{ grid-template-columns: 1fr; min-height: auto; padding-top: 42px; }
-  .title-row{ align-items:flex-start; margin-top: 14px; }
-  .cake{ width:136px; }
+  .title-row{ align-items:flex-start; margin-top: 10px; }
+  .cake{ width:160px; }
   .hero__card{ order: -1; }
   .mini__v{ max-width: 70%; }
   .gallery{ grid-template-columns: repeat(2, 1fr); }
@@ -768,8 +798,10 @@ code{
 
 @media (max-width: 460px){
   .timer__item{ min-width: 66px; }
-  .title-row{ align-items:flex-start; margin-top: 12px; }
-  .cake{ width:108px; margin-right: 0; }
+  .title-row{ align-items:flex-start; margin-top: 8px; }
+  .cake{ width:124px; margin-right: 0; }
+  .cake__mid{ height: 42px; }
+  .cake__base{ height: 50px; }
   .photo img{ height: 170px; }
   .photo__placeholder{ height: 170px; }
   .note-card{ width: 160px; margin-left: -14px; }
